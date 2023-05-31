@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" th:fragment="header">
+
+    <a class="navbar-brand" th:href="@{/}">Home</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+            aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        
+    <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" th:class="${activePage == 'list'} ? 'nav-item active' : 'nav-item'">
+            <a th:href="@{/list}" class="nav-link">Products</a>
+          </li>
+          <li class="nav-item" th:class="${activePage == 'add'} ? 'nav-item active' : 'nav-item'">
+            <a th:href="@{/add}" class="nav-link">Add</a>
+          </li>
+          <li class="nav-item" th:class="${activePage == 'update'} ? 'nav-item active' : 'nav-item'">
+            <a th:href="@{/update}" class="nav-link">Update</a>
+          </li>
+          <li class="nav-item" th:class="${activePage == 'delete'} ? 'nav-item active' : 'nav-item'">
+            <a th:href="@{/delete}" class="nav-link">Delete</a>
+          </li>
+        </ul>
+       
+    </div>
+</nav>

@@ -1,0 +1,53 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List Products</title>
+
+    <link rel="stylesheet" 
+			type="text/css" 
+			href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+    <link rel="stylesheet" 
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+			crossorigin="anonymous" />
+
+</head>
+<body>
+
+    <div th:replace="~{fragments/header :: header}"> </div>
+		
+    <div class="container">
+    
+        <h3>List Products</h3>
+        <table class="table table-bordered table-striped" id="productTable">
+			
+            <thead>
+                <tr>
+                    <th>Row_Id</th>
+                    <th>Order_Id</th>
+                    <th>Ship_Mode</th>
+                    <th>Customer_Id</th>
+                    <th>Customer_Name</th>
+                    <th>Category</th>
+                    <th>Product_Name</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product: ${products}">
+                    <td th:text="${product.row_id}" />
+                    <td th:text="${product.order_id}" />
+                    <td th:text="${product.ship_mode}" />
+                    <td th:text="${product.customerid}" />
+                    <td th:text="${product.customer_name}" />
+                    <td th:text="${product.category}" />
+                    <td th:text="${product.product_name}" />
+                    <td>
+                        <a th:href="@{/deleteProduct(row_id=${product.row_id})}" class="btn btn-outline-danger btn-sm ml-2">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div  th:replace="~{fragments/footer :: footer}"> </div>
+</body>        
+</html>

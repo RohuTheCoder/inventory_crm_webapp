@@ -1,0 +1,48 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>Add Product</title>
+		
+		<link rel="stylesheet" 
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+			crossorigin="anonymous" />
+	</head>
+	<body>
+
+		<div th:replace="~{fragments/header :: header}"> </div>
+		
+		<div class="container">
+		
+			<h3>Add New Product</h3>
+			<hr/>
+			
+			<form th:action="@{/saveProduct}" th:object="${product}" method="POST">
+				
+				<input type="text" field="*{row_id}" class="form-control col-4 mb-4" placeholder="Enter row_id" />
+				
+				<input type="text" field="*{order_id}" class="form-control col-4 mb-4" placeholder="Enter order_id" />
+				
+				<input type="text" field="*{ship_mode}" class="form-control col-4 mb-4" placeholder="Enter ship_mode" />
+
+                <input type="text" field="*{customer_id}" class="form-control col-4 mb-4" placeholder="Enter customer_id" />
+				
+				<input type="text" field="*{customer_name}" class="form-control col-4 mb-4" placeholder="Enter customer_name" />
+				
+				<input type="text" field="*{category}" class="form-control col-4 mb-4" placeholder="Enter category" />
+
+                <input type="text" field="*{product_name}" class="form-control col-4 mb-4" placeholder="Enter product_name" />
+				
+				<button type="submit" class="btn btn-primary col-2">Save</button>
+
+				<input type="hidden" field="*{row_id}" />
+				
+			</form>
+			<hr/>
+            <a th:href="@{/list}">Back to list</a>
+		</div>
+
+		<div  th:replace="~{fragments/footer :: footer}"> </div>
+		
+	</body>
+</html>
