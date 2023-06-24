@@ -33,13 +33,13 @@
             </thead>
             <tbody>
                 <tr th:each="product: ${products}">
-                    <td th:text="${product.row_id}" />
-                    <td th:text="${product.order_id}" />
-                    <td th:text="${product.ship_mode}" />
-                    <td th:text="${product.customerid}" />
-                    <td th:text="${product.customer_name}" />
-                    <td th:text="${product.category}" />
-                    <td th:text="${product.product_name}" />
+                    <td th:text="${product?.row_id}" />
+                    <td th:text="${product?.order_id}" />
+                    <td th:text="${product?.ship_mode}" />
+                    <td th:text="${product?.customerid}" />
+                    <td th:text="${product?.customer_name}" />
+                    <td th:text="${product?.category}" />
+                    <td th:text="${product?.product_name}" />
                 </tr>
             </tbody>
         </table>

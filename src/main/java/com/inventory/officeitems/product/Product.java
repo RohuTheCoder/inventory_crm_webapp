@@ -1,18 +1,23 @@
 package com.inventory.officeitems.product;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "office_data")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer row_id;
+
     public String order_id;
     public String order_date;
     public String ship_date;
+
     public String ship_mode;
-    
+
     public String customerid;
 
     public String customer_name;
@@ -30,7 +35,7 @@ public class Product {
     String region;
 
     String product_id;
-    
+
     public String category;
 
     String sub_category;
@@ -43,17 +48,19 @@ public class Product {
     float discount;
 
     float profit;
-    public Product()
-    {
+
+    public Product() {
 
     }
-    public Product( Integer row_id, String order_id, String Order_Date, String Ship_Date, String Ship_Mode, String Customer_ID,
-                    String Customer_Name, String Segment, String Country, String city, String State, Double Postal_Code,String Region,
-                    String Product_ID, String category, String Sub_Category, String Product_Name, float Sales, int Quantity,
-                    float Discount,float Profit)
-    {
+
+    public Product(Integer row_id, String order_id, String Order_Date, String Ship_Date, String Ship_Mode,
+            String Customer_ID,
+            String Customer_Name, String Segment, String Country, String city, String State, Double Postal_Code,
+            String Region,
+            String Product_ID, String category, String Sub_Category, String Product_Name, float Sales, int Quantity,
+            float Discount, float Profit) {
         this.row_id = row_id;
-        this.order_id =order_id;
+        this.order_id = order_id;
         this.order_date = Order_Date;
         this.ship_date = Ship_Date;
         this.ship_mode = Ship_Mode;
@@ -75,22 +82,22 @@ public class Product {
         this.profit = Profit;
     }
 
-    //getters and setters
+    // getters and setters
 
-
-    public int getRow_ID() {
-        return row_id;
-    }
-
-    public void setRow_ID(int row_ID){row_id = row_ID;
-    }
-
-    public String getOrder_ID() {
+    public String getOrder_id() {
         return order_id;
     }
 
-    public void setOrder_ID(String order_ID) {
-        order_id = order_ID;
+    public Integer getRow_id() {
+        return row_id;
+    }
+
+    public void setRow_id(Integer row_id) {
+        this.row_id = row_id;
+    }
+
+    public void setOrder_id(String order_id) {
+        this.order_id = order_id;
     }
 
     public String getOrder_Date() {
@@ -109,28 +116,28 @@ public class Product {
         ship_date = ship_Date;
     }
 
-    public String getShip_Mode() {
+    public String getShip_mode() {
         return ship_mode;
     }
 
-    public void setShip_Mode(String ship_Mode) {
-        ship_mode = ship_Mode;
+    public void setShip_mode(String ship_mode) {
+        this.ship_mode = ship_mode;
     }
 
-    public String getCustomer_ID() {
+    public String getCustomer_id() {
         return customerid;
     }
 
-    public void setCustomer_ID(String customer_ID) {
-        customerid = customer_ID;
+    public void setCustomer_id(String customer_id) {
+        this.customerid = customer_id;
     }
 
-    public String getCustomer_Name() {
+    public String getCustomer_name() {
         return customer_name;
     }
 
-    public void setCustomer_Name(String customer_Name) {
-        customer_name = customer_Name;
+    public void setCustomer_name(String customer_name) {
+        this.customer_name = customer_name;
     }
 
     public String getSegment() {
@@ -205,11 +212,11 @@ public class Product {
         sub_category = sub_Category;
     }
 
-    public String getProduct_Name() {
+    public String getProduct_name() {
         return product_name;
     }
 
-    public void setProduct_Name(String product_Name) {
+    public void setProduct_name(String product_Name) {
         product_name = product_Name;
     }
 
@@ -244,6 +251,14 @@ public class Product {
     public void setProfit(float Profit) {
         profit = Profit;
     }
+
+    @Override
+    public String toString() {
+        return "Product [row_id=" + row_id + ", order_id=" + order_id + ", order_date=" + order_date + ", ship_date="
+                + ship_date + ", ship_mode=" + ship_mode + ", customerid=" + customerid + ", customer_name="
+                + customer_name + ", segment=" + segment + ", country=" + country + ", city=" + city + ", state="
+                + state + ", postal_code=" + postal_code + ", region=" + region + ", product_id=" + product_id
+                + ", category=" + category + ", sub_category=" + sub_category + ", product_name=" + product_name
+                + ", sales=" + sales + ", quantity=" + quantity + ", discount=" + discount + ", profit=" + profit + "]";
+    }
 }
-
-
