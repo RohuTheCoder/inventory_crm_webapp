@@ -21,6 +21,7 @@ Open http://localhost:8080 to view it in the browser.
 <h3>4.Update Operation</h3>
 <img src="sample images/update1.png" width="450">
 <img src="sample images/update2.png" width="450">
+<img src="sample images/update3.png" width="450">
 <h3>5.Delete Operation</h3>
 <img src="sample images/delete1.png" width="450">
 <img src="sample images/delete2.png" width="450">
