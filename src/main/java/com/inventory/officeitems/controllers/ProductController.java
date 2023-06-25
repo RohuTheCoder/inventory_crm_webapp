@@ -39,6 +39,11 @@ public class ProductController {
 
     @PostMapping("/save")
     public String saveProduct(@ModelAttribute @Validated Product product) {
+         boolean isExistingProduct = productRepository.existsById(product.row_id);
+
+         if (isExistingProduct) {
+            return "error";
+        }
         // System.out.println(product.getRow_id());
         try {
             // System.out.println("*************"+product.toString());
@@ -46,12 +51,23 @@ public class ProductController {
         } catch (Exception e) {
             System.out.println("ERROR:" + e.getMessage());
         }
-        return "redirect:/list";
+        return "save-success";
+    }
+
+    @PostMapping("/edit/save")
+    public String editProduct(@ModelAttribute @Validated Product product) {
+        try {
+            productRepository.save(product);
+        } 
+        catch (Exception e) {
+            System.out.println("ERROR:" + e.getMessage());
+        }
+        return "save-success";
     }
 
     @GetMapping("/showUpdateForm")
     public ModelAndView showUpdateForm(@RequestParam Integer row_id) {
-        ModelAndView mav = new ModelAndView("add-product-form");
+        ModelAndView mav = new ModelAndView("edit-product-form");
         Product product = productRepository.findById(row_id).get();
         mav.addObject("product", product);
         return mav;
@@ -67,7 +83,7 @@ public class ProductController {
     @GetMapping("/deleteProduct")
     public String deleteProduct(@RequestParam Integer row_id) {
         productRepository.deleteById(row_id);
-        return "redirect:/list";
+        return "delete-success";
     }
 
     @GetMapping({ "/delete" })
