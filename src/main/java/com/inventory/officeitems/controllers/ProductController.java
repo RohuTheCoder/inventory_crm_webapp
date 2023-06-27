@@ -62,7 +62,7 @@ public class ProductController {
         catch (Exception e) {
             System.out.println("ERROR:" + e.getMessage());
         }
-        return "save-success";
+        return "update-success";
     }
 
     @GetMapping("/showUpdateForm")
